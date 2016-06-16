@@ -13,8 +13,8 @@ class Player
 
 	name
 	piece
-	name  = ( assigned_value )
-	piece = ( assigned_value )
+	name=( assigned_value )
+	piece=( assigned_value )
 
 	get_coordinates
 	ask_for_coordinates

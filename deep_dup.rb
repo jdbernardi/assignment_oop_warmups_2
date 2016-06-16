@@ -2,21 +2,20 @@
 
 require 'pry'
 
-class Array
 
-	def deep_dup
+	def deep_dup( arr )
 
-		arr2 = self.dup
+		#return Marshal.load(Marshal.dump(arr))
 
-		arr2.each_with_index { | x, i | arr2[i] = x.dup }
+		
 
-		return arr2
+
 
 	end
 
 
 
-end
+
 
 
 arr = [ [ 2, 3 ], [ 4, 5 ] ]
@@ -38,7 +37,9 @@ deeper_arr = [
                 [ [ 7, 8, [ 9, 10 ]], [11, 12] ],
             ]
 
-deeper_duper = deeper_arr.deep_dup
+deeper_duper = deep_dup( deeper_arr )
+
+
 
 print "deeper_arr id:" + "#{deeper_arr.object_id}\n".rjust(24)
 print "deeper_arr[0] id:" + "#{deeper_arr[0].object_id}\n".rjust(21)
@@ -52,5 +53,3 @@ print "deeper_duper[0] id:" + "#{deeper_duper[0].object_id}\n".rjust(19)
 print "deeper_duper[1] id:" + "#{deeper_duper[1].object_id}\n".rjust(19)
 print "deeper_duper[0,1] id:" + "#{deeper_duper[0,1].object_id}\n".rjust(17)
 print "deeper_duper[0,2] id:" + "#{deeper_duper[0,2].object_id}\n".rjust(17)
-
-
